@@ -15,10 +15,10 @@ form{width: 100%;}
 	<div><h1 class="fw-semibold fs-10 text-center">TODO APP</h1></div>
 	
 	
-	<form class="container border" action="editSaveTodoItem" method="get">
+	<form class="container border" action="/editSaveTodoItem" method="post">
 		  <div class="row m-3">
 		    <label for="title" class=" col text-end m-2">Todo ID</label>
-		    <input type="text" class="form-control col" id="title" name="title" value="${todo.getId() }">
+		    <input type="text" class="form-control col" id="title" name="id" value="${todo.getId() }" readonly>
 		  </div>
 		  <div class="row m-3">
 		    <label for="title" class=" col text-end m-2">Todo Title</label>
