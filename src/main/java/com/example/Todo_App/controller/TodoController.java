@@ -75,15 +75,19 @@ public class TodoController {
 		return modelAndView;		
 	}
 	
-	@GetMapping(path = "/editSaveTodoItem")
-	public ModelAndView editsaveTodoItem(Todo todo) {
+	@PostMapping(path = "/editSaveTodoItem")
+	public ModelAndView editSaveTodoItem(Todo todo) {
+		try {
 		if(service.saveOrUpdateTodoItem(todo)) {
 			modelAndView.addObject("message", "Todo Edited");
 			modelAndView.setViewName("redirect:/index");
-			return modelAndView;
+//			return modelAndView;
 		}
-		modelAndView.addObject("message", "Error on Todo Editing");
-		modelAndView.setViewName("redirect:/editTodoItem");
+		}catch(Exception e) {
+			//System.out.println("Heloooooooooooooo" + todo.toString());
+			modelAndView.addObject("message", "Error on Todo Editing");
+			modelAndView.setViewName("redirect:/editTodoItem");
+		}
 		return modelAndView;
 			
 	}
